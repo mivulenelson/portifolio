@@ -4,7 +4,7 @@ const roles = [
     "Graduate ICT Professional",
     "Cybersecurity Enthusiast",
     "Full-Stack Web Developer",
-    "Founder & CEO, ElashTechnologies"
+    "Founder & CEO, ElsahTechnologies"
 ];
 
 let roleIndex = 0;
@@ -12,6 +12,7 @@ let charIndex = 0;
 let deleting = false;
 
 function type() {
+    if (!typingTextElement) return;
     const currentRole = roles[roleIndex];
     if (!deleting) {
         typingTextElement.textContent = currentRole.slice(0, ++charIndex);
@@ -78,7 +79,7 @@ const skillObserver = new IntersectionObserver(
 
 // ========== NAV LINK HIGHLIGHTING ==========
 const navLinks = document.querySelectorAll(".nav-link");
-const sectionIds = ["hero", "about", "company", "skills", "projects", "contact"];
+const sectionIds = ["hero", "about", "company", "skills", "certifications", "projects", "contact"];
 
 const navObserver = new IntersectionObserver(
     (entries) => {
@@ -96,11 +97,11 @@ const navObserver = new IntersectionObserver(
     }
 );
 
-// ========== SMOOTH SCROLL FOR NAV LINKS (extra control) ==========
+// ========== SMOOTH SCROLL FOR NAV LINKS ==========
 navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
         const targetId = link.getAttribute("href");
-        if (targetId.startsWith("#")) {
+        if (targetId && targetId.startsWith("#")) {
             e.preventDefault();
             const target = document.querySelector(targetId);
             if (target) {
@@ -114,6 +115,59 @@ navLinks.forEach((link) => {
 const yearSpan = document.getElementById("year");
 if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
+}
+
+// ========== SCROLL UP / DOWN BUTTONS (NEW) ==========
+let upBtn;
+let downBtn;
+
+function initScrollButtons() {
+    upBtn = document.createElement("button");
+    upBtn.className = "scroll-btn up";
+    upBtn.setAttribute("aria-label", "Scroll to top");
+    upBtn.innerHTML = "▲";
+
+    downBtn = document.createElement("button");
+    downBtn.className = "scroll-btn down";
+    downBtn.setAttribute("aria-label", "Scroll to bottom");
+    downBtn.innerHTML = "▼";
+
+    document.body.appendChild(upBtn);
+    document.body.appendChild(downBtn);
+
+    const hero = document.getElementById("hero");
+    const contact = document.getElementById("contact") || document.querySelector("footer");
+
+    upBtn.addEventListener("click", () => {
+        if (hero) {
+            hero.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    });
+
+    downBtn.addEventListener("click", () => {
+        if (contact) {
+            contact.scrollIntoView({ behavior: "smooth", block: "end" });
+        } else {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+        }
+    });
+
+    function updateScrollButtonsVisibility() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
+        const showUp = scrollY > 200;
+        const showDown = scrollY + viewportHeight < documentHeight - 200;
+
+        if (upBtn) upBtn.classList.toggle("visible", showUp);
+        if (downBtn) downBtn.classList.toggle("visible", showDown);
+    }
+
+    window.addEventListener("scroll", updateScrollButtonsVisibility);
+    updateScrollButtonsVisibility();
 }
 
 // ========== INIT OBSERVERS & TYPING ON LOAD ==========
@@ -136,9 +190,12 @@ window.addEventListener("DOMContentLoaded", () => {
         projectObserver.observe(card);
     });
 
-    // observe skill container for bars
+    // observe skills section for bars
     const skillsSection = document.getElementById("skills");
     if (skillsSection) {
         skillObserver.observe(skillsSection);
     }
+
+    // init scroll up/down buttons
+    initScrollButtons();
 });
