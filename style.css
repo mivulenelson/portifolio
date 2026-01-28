@@ -365,6 +365,49 @@ body {
     transition: width 1.5s ease-in-out;
 }
 
+/* ====== CERTIFICATIONS SECTION (NEW ADVANCED STYLING) ====== */
+#certifications ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+#certifications li {
+    background: radial-gradient(circle at top left, rgba(50, 130, 184, 0.15), transparent),
+                var(--secondary);
+    border-radius: 12px;
+    padding: 14px 18px;
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+#certifications li::before {
+    content: "🎓";
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    opacity: 0.35;
+    font-size: 1.3rem;
+}
+
+#certifications li strong {
+    display: block;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 4px;
+}
+
+#certifications li span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
 /* ====== PROJECTS ====== */
 .projects-container {
     display: grid;
@@ -484,6 +527,48 @@ footer {
     margin-top: 60px;
     font-size: 0.85rem;
     border-top: 1px solid var(--border-soft);
+}
+
+/* ====== SCROLL UP / DOWN BUTTONS (NEW) ====== */
+.scroll-btn {
+    position: fixed;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border-soft);
+    background: rgba(27, 38, 59, 0.95);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 1200;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.scroll-btn.up {
+    bottom: 78px;
+}
+
+.scroll-btn.down {
+    bottom: 26px;
+}
+
+.scroll-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-btn:hover {
+    background: var(--accent);
+    color: var(--text);
 }
 
 /* ====== ANIMATIONS ====== */
