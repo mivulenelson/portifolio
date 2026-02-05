@@ -4,7 +4,7 @@ const roles = [
     "Graduate ICT Professional",
     "Cybersecurity Enthusiast",
     "Full-Stack Web Developer",
-    "Founder & CEO, ElsahTechnologies"
+    "Founder & CEO, PneumaSystems"
 ];
 
 let roleIndex = 0;
