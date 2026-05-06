@@ -79,7 +79,7 @@ const skillObserver = new IntersectionObserver(
 
 // ========== NAV LINK HIGHLIGHTING ==========
 const navLinks = document.querySelectorAll(".nav-link");
-const sectionIds = ["hero", "about", "company", "skills", "certifications", "projects", "contact"];
+const sectionIds = ["hero", "about", "company", "skills", "labs", "certifications", "projects", "contact"];
 
 const navObserver = new IntersectionObserver(
     (entries) => {
