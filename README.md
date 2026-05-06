@@ -1,24 +1,50 @@
-🚀 Personal Portfolio Website
-Welcome to the repository for my professional portfolio. This project showcases my skills, projects, and journey as a Full-Stack Developer.
+Nelson Mivule | ICT, Cybersecurity & Full-Stack Developer
 
-🛠️ Built With
-This portfolio is a full-stack application designed for performance, scalability, and clean data management.
+Profile Summary
 
-Backend: Python & Django (Robust server-side logic)
+I am a motivated Ugandan cybersecurity professional and an aspiring computer security and digital forensics specialist. Currently awaiting graduation in November 2026, I have hands-on experience in ethical hacking, malware analysis, and cybersecurity research. As the Founder and CEO of NeumaOps, I am dedicated to building secure, scalable digital solutions and maintaining the highest standards of data integrity and confidentiality.
 
-Database: PostgreSQL (Relational data for projects and blog posts)
+Key Achievements
 
-API: Django REST Framework (Powers the headless capabilities)
+National CTF Participant: Ranked 28th out of 62 participants in the UCC National CTF Competition (2025), demonstrating resilience and technical problem-solving under pressure.
 
-Frontend: HTML5, CSS3, and JavaScript (Vanilla JS for high-speed interactivity)
+Security Research: Developed projects like NeumaVault (secure file transfer) and SecureChat (E2E encrypted messaging) using zero-knowledge architecture and Python.
 
-🌟 Features
-Dynamic Project Showcase: Projects are pulled from a PostgreSQL database via a REST API, allowing for easy updates without redeploying code.
+Professional Training: Earned 14+ certifications across ISO 27001, Endpoint Security, Network Defense, and Ethical Hacking from institutions like Cisco Networking Academy and Udemy.
 
-Responsive Design: Fully optimized for mobile, tablet, and desktop views.
+Technical Stack
 
-Contact System: Integrated contact form with backend validation and email notifications.
+Programming: Python, Django, REST API, SQL, HTML, CSS, JavaScript.
 
-Live Search/Filter: Filter projects by technology or category using JavaScript.
+Cybersecurity Tools: Wireshark, Nmap, Metasploit, Burp Suite, OWASP ZAP, NetCat.
 
-SEO Optimized: Meta tags and structured data for better search engine ranking.
+Digital Forensics: Sleuth Kit (+Autopsy), Volatility, FTK Imager, Ghidra, EnCase, Event Viewer.
+
+Infrastructure: Linux (Ubuntu), Windows, Docker, VirtualBox, VMWare, GNS3, Packet Tracer.
+
+Databases: PostgreSQL, MySQL, SQLite.
+
+Project Highlights
+
+NeumaVault: A secure file transfer and storage application utilizing a zero-knowledge architecture.
+
+SecureChat: A Python/PySide6 chat management app ensuring end-to-end encryption.
+
+Fingerprint Matching: Utilizing OpenCV and the SOCO Coventry dataset for biometric analysis.
+
+MAC Address Changer: A Python tool for networking privacy and anonymity.
+
+Education & Experience
+BSc. Computer Security and Forensics: Universal Technology and Management University (Expected Graduation: 2026).
+
+Cybersecurity Intern: CodeAlpha (Remote) & UTAMU, focusing on threat analysis and secure coding.
+
+Lead Florist: Experience in team leadership, logistics, and high-pressure project delivery at Nuru's Decor.
+
+Contact Information
+Email: nellythewise1419@gmail.com | uvnelly869@gmail.com
+
+
+Location: Ndejje Namasuba, Kampala, Uganda
+
+Phone: +256 762 398 962 / +256 709 938 472
