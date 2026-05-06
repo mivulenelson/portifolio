@@ -3,7 +3,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Use Inter as the default for the whole page */
+    font-family: 'JetBrains Mono', monospace !important;
 }
 
 /* ====== VARIABLES ====== */
@@ -14,6 +15,9 @@
     --text: #ffffff;          /* White text */
     --muted: #cfd8e3;
     --border-soft: rgba(255, 255, 255, 0.08);
+
+    /* Define a technical font variable */
+    --font-mono: 'JetBrains Mono', monospace;
 }
 
 /* ====== BODY ====== */
@@ -21,7 +25,15 @@ body {
     background-color: var(--primary);
     color: var(--text);
     scroll-behavior: smooth;
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* HEadngs should be bold and tight */
+h1, h2, h3 {
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
 }
 
 /* ====== TOP HEADER & NAVBAR ====== */
@@ -110,6 +122,37 @@ body {
 }
 
 /* ====== HERO / GREETING ====== */
+.hero h1 {
+    font-size: 3rem;
+}
+
+/* Technical details use the Mono font*/
+.brand-role, 
+.ceo-badge, 
+.ceo-tags span,
+.skill-desc,
+.software-list li,
+#certifications li strong,
+.project-meta,
+.contact-details span,
+#typing-text {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+}
+
+/* Paragraph: Increase line-heigth for readability */
+p {
+    line-height: 1.7;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.hero-subtitle {
+    font-weight: 500;
+    color: var(--accent);
+}
+
 .hero {
     padding: 80px 6%;
     background: linear-gradient(135deg, #0d1b2a, #1b263b);
@@ -182,6 +225,9 @@ body {
 /* ====== BUTTONS ====== */
 .btn {
     text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     padding: 12px 28px;
     border-radius: 999px;
     font-size: 0.95rem;
@@ -367,6 +413,10 @@ body {
 
 /* ====== CERTIFICATIONS SECTION (NEW ADVANCED STYLING) ====== */
 #certifications ul {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(255, 255, 255, 0.03);
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
