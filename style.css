@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEUMAOPS BRAND SUITE ARCHITECTURE — GLOBAL STYLESHEET
+   NEUMAOPS BRAND SUITE ARCHITECTURE — GLOBAL STYLESHEET (style_3.css)
    ========================================================================== */
 
 /* ====== SYSTEM RESET & DESIGN TOKENS ====== */
@@ -393,44 +393,74 @@ p {
     box-shadow: 0 0 8px var(--accent-pneuma);
 }
 
-/* ====== ADVANCED SYSTEMS CERTIFICATIONS ====== */
+/* ==========================================================================
+   IMAGE_5A250B.PNG VERBATIM CERTIFICATIONS LAYOUT DEFINITIONS
+   ========================================================================== */
 #certifications ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 500px) {
+    #certifications ul {
+        grid-template-columns: 1fr;
+    }
 }
 
 #certifications li {
     background: var(--bg-card);
     border-radius: 6px;
-    padding: 16px;
+    padding: 28px 24px;
     border: 1px solid var(--border-soft);
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    overflow: hidden; /* Clips the diagonal ribbon overlay boundary cleanly */
+    min-height: 125px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-#certifications li::before {
-    content: "SYSTEM_CERT";
-    position: absolute;
-    top: 14px;
-    right: 16px;
-    font-size: 8px;
-    color: rgba(255, 255, 255, 0.05);
-    font-weight: 700;
+#certifications li:hover {
+    border-color: rgba(16, 185, 129, 0.3); /* Shifts to green glow on cert validation */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
 }
 
 #certifications li strong {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 4px;
+    line-height: 1.4;
+    margin-bottom: 14px;
+    max-width: 85%; /* Prevents text colliding with the ribbon element */
+    text-transform: none; /* Matches the accurate mixed casing seen in image_5a250b.png */
 }
 
 #certifications li span {
     font-size: 11px;
-    color: var(--accent-pneuma);
+    color: #38bdf8; /* High-accuracy slate cyan links font color */
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Verbatim Ribbon Generator */
+.cert-ribbon {
+    position: absolute;
+    top: 14px;
+    right: -32px;
+    background: rgba(16, 185, 129, 0.12); /* Soft transparent engineering green background */
+    color: var(--green-accent);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 35px;
+    transform: rotate(45deg);
+    transform-origin: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 /* ====== PROJECT LOGS ====== */
