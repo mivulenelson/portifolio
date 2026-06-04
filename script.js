@@ -1,201 +1,148 @@
-// ========== TYPING EFFECT IN HERO ==========
-const typingTextElement = document.getElementById("typing-text");
-const roles = [
-    "Graduate ICT Professional",
-    "Cybersecurity Enthusiast",
-    "Full-Stack Web Developer",
-    "Founder & CEO, NeumaOps"
-];
+/**
+ * ==========================================================================
+ * NEUMAOPS UNIFIED INTERACTION REGISTRY ENGINE - (script.js)
+ * ==========================================================================
+ */
 
-let roleIndex = 0;
-let charIndex = 0;
-let deleting = false;
+document.addEventListener('DOMContentLoaded', () => {
 
-function type() {
-    if (!typingTextElement) return;
-    const currentRole = roles[roleIndex];
-    if (!deleting) {
-        typingTextElement.textContent = currentRole.slice(0, ++charIndex);
-        if (charIndex === currentRole.length) {
-            deleting = true;
-            setTimeout(type, 1300);
-            return;
-        }
-    } else {
-        typingTextElement.textContent = currentRole.slice(0, --charIndex);
-        if (charIndex === 0) {
-            deleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-        }
+    /* =========================
+       1. Core Temporal Year Sync
+    ========================== */
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
     }
-    setTimeout(type, deleting ? 60 : 90);
-}
 
-// ========== INTERSECTION OBSERVER FOR SECTIONS ==========
-const sectionObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("in-view");
+    /* =========================
+       2. Dynamic Text Matrix Typist
+    ========================== */
+    const typingTextElement = document.getElementById("typing-text");
+    const roles = [
+        "Graduate ICT Systems Engineer",
+        "Cybersecurity Operations Specialist",
+        "Full-Stack Software Architect",
+        "Founder & CEO, NeumaOps Solutions"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function type() {
+        if (!typingTextElement) return;
+        const currentRole = roles[roleIndex];
+        
+        if (!deleting) {
+            typingTextElement.textContent = currentRole.slice(0, ++charIndex);
+            if (charIndex === currentRole.length) {
+                deleting = true;
+                setTimeout(type, 1800); // Wait state on string complete
+                return;
             }
-        });
-    },
-    {
-        threshold: 0.18
-    }
-);
-
-// ========== INTERSECTION OBSERVER FOR PROJECT CARDS ==========
-const projectObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("in-view");
-            }
-        });
-    },
-    {
-        threshold: 0.15
-    }
-);
-
-// ========== SKILL BAR ANIMATION ==========
-const skillObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const bars = entry.target.querySelectorAll(".skill-bar span");
-                bars.forEach((bar) => {
-                    const width = bar.dataset.width;
-                    bar.style.width = width;
-                });
-            }
-        });
-    },
-    {
-        threshold: 0.4
-    }
-);
-
-// ========== NAV LINK HIGHLIGHTING ==========
-const navLinks = document.querySelectorAll(".nav-link");
-const sectionIds = ["hero", "about", "company", "skills", "labs", "certifications", "projects", "contact"];
-
-const navObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const id = entry.target.id;
-                navLinks.forEach((link) => {
-                    link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
-                });
-            }
-        });
-    },
-    {
-        threshold: 0.5
-    }
-);
-
-// ========== SMOOTH SCROLL FOR NAV LINKS ==========
-navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-        const targetId = link.getAttribute("href");
-        if (targetId && targetId.startsWith("#")) {
-            e.preventDefault();
-            const target = document.querySelector(targetId);
-            if (target) {
-                target.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-        }
-    });
-});
-
-// ========== FOOTER YEAR ==========
-const yearSpan = document.getElementById("year");
-if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-}
-
-// ========== SCROLL UP / DOWN BUTTONS (NEW) ==========
-let upBtn;
-let downBtn;
-
-function initScrollButtons() {
-    upBtn = document.createElement("button");
-    upBtn.className = "scroll-btn up";
-    upBtn.setAttribute("aria-label", "Scroll to top");
-    upBtn.innerHTML = "▲";
-
-    downBtn = document.createElement("button");
-    downBtn.className = "scroll-btn down";
-    downBtn.setAttribute("aria-label", "Scroll to bottom");
-    downBtn.innerHTML = "▼";
-
-    document.body.appendChild(upBtn);
-    document.body.appendChild(downBtn);
-
-    const hero = document.getElementById("hero");
-    const contact = document.getElementById("contact") || document.querySelector("footer");
-
-    upBtn.addEventListener("click", () => {
-        if (hero) {
-            hero.scrollIntoView({ behavior: "smooth", block: "start" });
         } else {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            typingTextElement.textContent = currentRole.slice(0, --charIndex);
+            if (charIndex === 0) {
+                deleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+            }
         }
-    });
-
-    downBtn.addEventListener("click", () => {
-        if (contact) {
-            contact.scrollIntoView({ behavior: "smooth", block: "end" });
-        } else {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-        }
-    });
-
-    function updateScrollButtonsVisibility() {
-        const scrollY = window.scrollY || window.pageYOffset;
-        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-
-        const showUp = scrollY > 200;
-        const showDown = scrollY + viewportHeight < documentHeight - 200;
-
-        if (upBtn) upBtn.classList.toggle("visible", showUp);
-        if (downBtn) downBtn.classList.toggle("visible", showDown);
+        setTimeout(type, deleting ? 40 : 80);
     }
-
-    window.addEventListener("scroll", updateScrollButtonsVisibility);
-    updateScrollButtonsVisibility();
-}
-
-// ========== INIT OBSERVERS & TYPING ON LOAD ==========
-window.addEventListener("DOMContentLoaded", () => {
-    // typing effect
     type();
 
-    // observe sections
-    document.querySelectorAll(".section").forEach((section) => {
-        sectionObserver.observe(section);
-        navObserver.observe(section);
+    /* =========================
+       3. Intersection Reveal Observers
+    ========================== */
+    const elementRevealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, idx) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.filter = 'blur(0)';
+                }, idx * 50); // Progressive cascade render delays
+                elementRevealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.06 });
+
+    // Query targeting structures
+    const targets = document.querySelectorAll('.section, .card, .hero-content > *');
+    targets.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(16px)';
+        el.style.filter = 'blur(2px)';
+        el.style.transition = 'opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), filter 0.7s cubic-bezier(0.25, 1, 0.5, 1)';
+        elementRevealObserver.observe(el);
     });
 
-    // observe hero for nav highlighting
-    const hero = document.getElementById("hero");
-    if (hero) navObserver.observe(hero);
+    /* =========================
+       4. Metric Skill-Bar Fluid Ingestion 
+    ========================== */
+    const skillSection = document.getElementById('skills');
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBars = entry.target.querySelectorAll('.skill-bar span');
+                progressBars.forEach(bar => {
+                    const explicitMetric = bar.getAttribute('data-width');
+                    if (explicitMetric) bar.style.width = explicitMetric;
+                });
+                skillObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
 
-    // observe projects
-    document.querySelectorAll(".project-card").forEach((card) => {
-        projectObserver.observe(card);
-    });
+    if (skillSection) skillObserver.observe(skillSection);
 
-    // observe skills section for bars
-    const skillsSection = document.getElementById("skills");
-    if (skillsSection) {
-        skillObserver.observe(skillsSection);
-    }
+    /* =========================
+       5. Segment Routing Highlights
+    ========================== */
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
 
-    // init scroll up/down buttons
-    initScrollButtons();
+    const routeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetId = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${targetId}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.4 });
+
+    sections.forEach(section => routeObserver.observe(section));
+
+    /* =========================
+       6. High-Performance Navigation Engine
+    ========================== */
+    const initScrollTopEngine = () => {
+        const scrollBtn = document.createElement('button');
+        scrollBtn.className = 'scroll-top-btn';
+        scrollBtn.setAttribute('aria-label', 'Scroll safely to top section');
+        scrollBtn.innerHTML = '▲';
+        document.body.appendChild(scrollBtn);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollBtn.classList.add('is-visible');
+            } else {
+                scrollBtn.classList.remove('is-visible');
+            }
+        }, { passive: true });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    };
+    initScrollTopEngine();
 });
