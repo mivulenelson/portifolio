@@ -2,7 +2,7 @@ Nelson Mivule | ICT, Cybersecurity & Full-Stack Developer
 
 POFILE SUMMARY
 
-I am a motivated Ugandan cybersecurity professional and an aspiring computer security and digital forensics specialist. Currently awaiting graduation in November 2026, I have hands-on experience in ethical hacking, malware analysis, and cybersecurity research. As the Founder and CEO of NeumaOps, I am dedicated to building secure, scalable digital solutions and maintaining the highest standards of data integrity and confidentiality.
+I am a motivated Ugandan cybersecurity professional and an aspiring computer security and digital forensics specialist. Currently awaiting graduation in November 2026, I have hands-on experience in ethical hacking, malware analysis, and cybersecurity research. As the Founder and CEO of NeumaCyber Operations, I am dedicated to building secure, scalable digital solutions and maintaining the highest standards of data integrity and confidentiality.
 
 KEY ACHIEVEMENTS
 
